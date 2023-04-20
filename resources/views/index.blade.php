@@ -4,7 +4,10 @@
 <div class="flex items-center justify-center h-screen">
     <div class="w-[500px] bg-white p-5 rounded-md text-black">
 
-        <p class="text-2xl mb-2 font-extrabold">TODO's</p>
+        <div class="flex items-center mb-2">
+            <p class="text-2xl font-extrabold">TODO's</p>
+
+        </div>
 
         <form action="{{ route('todos.store') }}" method="POST" class="mb-4">
             @csrf
@@ -26,9 +29,10 @@
             <button type=" submit" class="bg-blue-600 text-white px-6 py-2.5 rounded-md hover:bg-blue-700 transition duration-150 ease-in-out active:bg-blue-800 w-full outline-0 focus:outline-1 focus:outline-indigo-600">Add</button>
         </form>
 
-        <div class="flex justify-between">
-            <div></div>
+        <div class="flex justify-between mb-1">
             <p>No. of Todos: {{count($todos)}}</p>
+            <p>Pending: {{$todos->where('completed', false)->count()}}</p>
+            <p>Completed: {{$todos->where('completed', true)->count()}}</p>
         </div>
 
         <x-todo-list :todos="$todos" />
