@@ -11,7 +11,7 @@
             @csrf
             @method('PATCH')
             <div class="flex items-center">
-                <input type="checkbox" name="completed" id="completed" onchange="this.form.submit()" {{ $todo->completed ? 'checked' : '' }} class="form-checkbox text-indigo-600 transition duration-150 ease-in-out mr-2 w-5 h-5 cursor-pointer">
+                <input type="checkbox" name="completed" id="completed" onchange="this.form.submit()" {{ $todo->completed ? 'checked' : '' }} class="form-checkbox text-indigo-00 transition duration-150 ease-in-out mr-2 w-5 h-5 cursor-pointer accent-cyan-900">
             </div>
         </form>
 
